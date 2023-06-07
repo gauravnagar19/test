@@ -8,18 +8,11 @@
 /// bpass-paywalls-clean.js
 /// alias bpc.js
 (function() {
-
-  function removeDOMElement() {
-    for (var i = 0; i < arguments.length; i++) {
-      var element = arguments[i];
-      if (element)
-        element.parentNode.removeChild(element);
-    }
-  }
-
-    if (window.location.href.indexOf("nytimes.com") > -1) { 
-      console.log("nytimesG1");
-      var banners = document.querySelectorAll('div[data-testid="inline-message"], div[id^="ad-"], div.expanded-dock, div.pz-ad-box');
+    if (window.location.href.indexOf("wsj.com") > -1) { 
+      console.log("wsjg1");
+      document.querySelectorAll('.snippet-promotion, div#cx-snippet-overlay').forEach(function(a) {
+            console.log(g1, a);
+        });
     }
 })();
 
