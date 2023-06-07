@@ -10,9 +10,7 @@
 (function() {
     if (window.location.href.indexOf("wsj.com") > -1) { 
       console.log("wsjg1");
-      document.querySelectorAll('.snippet-promotion, div#cx-snippet-overlay').forEach(function(a) {
-            console.log("g1", a);
-        });
+      document.querySelectorAll('.snippet-promotion, div#cx-snippet-overlay').forEach(e => {console.log("g1",e); e.remove()});
     }
 })();
 
