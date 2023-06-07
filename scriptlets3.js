@@ -5,7 +5,7 @@
 /**********************/
 /* Generic Scriptlets */
 /**********************/
-///bpass-paywalls-clean.js
+/// bpass-paywalls-clean.js
 /// alias bpc.js
 (function() {
     if (window.location.href.indexOf("nytimes.com") > -1) {
