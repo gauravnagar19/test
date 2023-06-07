@@ -29,9 +29,7 @@
 // @match           *://*.wellandtribune.ca/*
 // ==/UserScript==
 
-/// ExampleScript2.js
-console.log("Hello I'm running via scriptlet injection: ExampleScript2.js");
-
+/// ExampleScript3.js
 (function() {
   'use strict';
 
