@@ -19,7 +19,7 @@
 
     if (window.location.href.indexOf("nytimes.com") > -1) {
         var banners = document.querySelectorAll('div[data-testid="inline-message"], div[id^="ad-"], div.expanded-dock, div.pz-ad-box');
-        removeDOMElement(...banners);
+        //removeDOMElement(...banners);
         console.log("Latest version");
     }
 
