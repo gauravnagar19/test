@@ -18,65 +18,11 @@
     }
   }
 
-  function matchDomain(domains, hostname) {
-    var matched_domain = false;
-    if (!hostname)
-      hostname = window.location.hostname;
-    if (typeof domains === 'string')
-      domains = [domains];
-    domains.some(function(domain) {
-      if ((hostname === domain || hostname.endsWith('.' + domain)) && (matched_domain = domain))
-        return true;
-    });
-    return matched_domain;
-  }
-
-  if (matchDomain('wsj.com')) {
-    var url = window.location.href;
-    if (location.href.includes('/articles/')) {
-      var close_button = document.querySelector('div.close-btn[role="button"]');
-      if (close_button)
-        close_button.click();
-    }
-    var wsj_ads = document.querySelectorAll('div[class*="wsj-ad"], div[class*="BodyAdWrapper"]');
-    removeDOMElement.apply(null, wsj_ads);
-    if (url.includes('/amp/')) {
-      var masthead_link = document.querySelector('div.masthead > a[href*="/articles/"]');
-      if (masthead_link)
-        masthead_link.href = 'https://www.wsj.com';
-      amp_unhide_subscr_section();
-      var login = document.querySelector('div.login-section-container');
-      removeDOMElement(login);
-      var amp_images = document.querySelectorAll('amp-img');
-      for (var i = 0; i < amp_images.length; i++) {
-        var amp_img = amp_images[i];
-        var img_new = document.createElement('img');
-        img_new.src = amp_img.getAttribute('src');
-        amp_img.parentNode.replaceChild(img_new, amp_img);
-      }
-    } else {
-      var snippet = document.querySelector('.snippet-promotion, div#cx-snippet-overlay');
-      var wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
-      if (snippet || wsj_pro) {
-        removeDOMElement(snippet, wsj_pro);
-        window.location.href = url.replace('wsj.com', 'wsj.com/amp');
-      }
-    }
-  }
-
-  function amp_unhide_subscr_section(amp_ads_sel, replace_iframes, amp_iframe_link, source) {
-    amp_ads_sel = amp_ads_sel || 'amp-ad, .ad';
-    replace_iframes = typeof replace_iframes === 'undefined' ? true : replace_iframes;
-    var preview = document.querySelectorAll('[subscriptions-section="content-not-granted"]');
-    removeDOMElement.apply(null, preview);
-    var subscr_section = document.querySelectorAll('[subscriptions-section="content"]');
-    for (var i = 0; i < subscr_section.length; i++)
-      subscr_section[i].removeAttribute('subscriptions-section');
-    var amp_ads = document.querySelectorAll(amp_ads_sel);
-    removeDOMElement.apply(null, amp_ads);
-    if (replace_iframes)
-      amp_iframes_replace(amp_iframe_link, source);
-  }
+if (window.location.href.indexOf("nytimes.com") > -1) {
+        var banners = document.querySelectorAll('div[data-testid="inline-message"], div[id^="ad-"], div.expanded-dock, div.pz-ad-box');
+        //removeDOMElement(...banners);
+        console.log("Latest version");
+}
 
 })();
 
