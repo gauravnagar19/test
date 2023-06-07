@@ -8,38 +8,16 @@
 ///bpass-paywalls-clean.js
 /// alias bpc.js
 (function() {
-
-    if (window.location.href.indexOf("wsj.com") > -1) {
-        var url = window.location.href;
-        if (location.href.indexOf('/articles/') !== -1) {
-            var close_button = document.querySelector('div.close-btn[role="button"]');
-            if (close_button)
-                close_button.click();
-        }
-        var wsj_ads = document.querySelectorAll('div[class*="wsj-ad"], div[class*="BodyAdWrapper"]');
-        
-        for (var i = 0; i < wsj_ads.length; i++) {
-            var element = wsj_ads[i]; // Corrected variable name
+    if (window.location.href.indexOf("nytimes.com") > -1) {
+    var banners = document.querySelectorAll('div[data-testid="inline-message"], div[id^="ad-"], div.expanded-dock, div.pz-ad-box');
+    try {
+        for (var i = 0; i < banners.length; i++) {
+            var element = banners[i];
             if (element)
                 element.remove();
         }
-        
-        var snippet = document.querySelector('.snippet-promotion, div#cx-snippet-overlay');
-        var wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
-        if (snippet || wsj_pro) {
-    
-            for (var i = 0; i < snippet.length; i++) {
-                var element = snippet[i]; // Corrected variable name
-                if (element)
-                    element.remove();
-            }
-            for (var i = 0; i < wsj_pro.length; i++) {
-                var element = wsj_pro[i]; // Corrected variable name
-                if (element)
-                    element.remove();
-            }
-            window.location.href = url.replace('wsj.com', 'wsj.com/amp');
-        }
+    }
+    catch(error) { }
     }
 })();
 
