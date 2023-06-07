@@ -1,8 +1,8 @@
+// https://github.com/MrBukLau/filter-lists/blob/master/scriptlets/scriptletfilters.txt
 "use strict";
 /// BypassPaywallClean.js
 /// bpc.js
 (function() {
-
 
 if (matchDomain('nzherald.co.nz')) {
   function nzherald_main() {
