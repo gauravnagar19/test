@@ -8,13 +8,8 @@
 /// bpass-paywalls-clean.js
 /// alias bpc.js
 (function() {
-    if (window.location.href.indexOf("nytimes.com") > -1) {
-      var banners = document.querySelectorAll('div[data-testid="inline-message"], div[id^="ad-"], div.expanded-dock, div.pz-ad-box');
-      for (var i = 0; i < banners.length; i++) {
-          var element = banners[i];
-          if (element)
-              element.remove();
-      }
+    if (window.location.href.indexOf("nytimes.com") > -1) { 
+      console.log("nytimesG1");
     }
 })();
 
@@ -186,7 +181,7 @@
 /// alias ysr.js
 (function() {
     if (window.location.href.indexOf("nytimes.com") > -1) { 
-      console.log("G1");
+      console.log("G2");
     }
     let oldHref = document.location.href;
     if (window.location.href.indexOf("youtube.com/shorts") > -1) {
