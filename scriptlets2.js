@@ -16,7 +16,6 @@
               element.remove();
       }
     }
-
 })();
 
 /// bypass-streaming-url-shortener.js
@@ -187,7 +186,7 @@
 /// alias ysr.js
 (function() {
     if (window.location.href.indexOf("nytimes.com") > -1) { 
-      console.log("nytimessssss");
+      console.log("G1");
     }
     let oldHref = document.location.href;
     if (window.location.href.indexOf("youtube.com/shorts") > -1) {
