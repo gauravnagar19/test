@@ -18,24 +18,10 @@
     }
 
     if (window.location.href.indexOf("nytimes.com") > -1) {
-    var banners = document.querySelectorAll('div[data-testid="inline-message"], div[id^="ad-"], div.expanded-dock, div.pz-ad-box');
-    try {
+        var banners = document.querySelectorAll('div[data-testid="inline-message"], div[id^="ad-"], div.expanded-dock, div.pz-ad-box');
         removeDOMElement(...banners);
+        console.log("Latest version");
     }
-    catch(error) { }
-    }
-
-//     if (window.location.href.indexOf("nytimes.com") > -1) {
-//     var banners = document.querySelectorAll('div[data-testid="inline-message"], div[id^="ad-"], div.expanded-dock, div.pz-ad-box');
-//     try {
-//         for (var i = 0; i < banners.length; i++) {
-//             var element = banners[i];
-//             if (element)
-//                 element.remove();
-//         }
-//     }
-//     catch(error) { }
-//     }
 
 })();
 
