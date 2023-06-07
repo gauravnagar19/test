@@ -1,6 +1,7 @@
+/*jshint esversion: 6 */
+
 // MrBukLau's Scriptlets
 
-"use strict";
 
 /**********************/
 /* Generic Scriptlets */
@@ -8,6 +9,63 @@
 ///bpass-paywalls-clean.js
 /// alias bpc.js
 (function() {
+  'use strict';
+    
+function removeDOMElement(...elements) {
+  for (let element of elements) {
+    if (element)
+      element.remove();
+  }
+}
+
+function matchDomain(domains, hostname) {
+  var matched_domain = false;
+  if (!hostname)
+    hostname = window.location.hostname;
+  if (typeof domains === 'string')
+    domains = [domains];
+  domains.some(domain => (hostname === domain || hostname.endsWith('.' + domain)) && (matched_domain = domain));
+  return matched_domain;
+}
+
+function amp_iframes_replace(weblink = false, source = '') {
+  let amp_iframes = document.querySelectorAll('amp-iframe' + (source ? '[src*="'+ source + '"]' : ''));
+  let par, elem;
+  for (let amp_iframe of amp_iframes) {
+    if (!weblink) {
+      elem = document.createElement('iframe');
+      Object.assign(elem, {
+        src: amp_iframe.getAttribute('src'),
+        sandbox: amp_iframe.getAttribute('sandbox'),
+        height: amp_iframe.getAttribute('height'),
+        width: 'auto',
+        style: 'border: 0px;'
+      });
+      amp_iframe.parentNode.replaceChild(elem, amp_iframe);
+    } else {
+      par = document.createElement('p');
+      elem = document.createElement('a');
+      elem.innerText = 'Media-link';
+      elem.setAttribute('href', amp_iframe.getAttribute('src'));
+      elem.setAttribute('target', '_blank');
+      par.appendChild(elem);
+      amp_iframe.parentNode.replaceChild(par, amp_iframe);
+    }
+  }
+}
+
+function amp_unhide_subscr_section(amp_ads_sel = 'amp-ad, .ad', replace_iframes = true, amp_iframe_link = false, source = '') {
+  let preview = document.querySelectorAll('[subscriptions-section="content-not-granted"]');
+  removeDOMElement(...preview);
+  let subscr_section = document.querySelectorAll('[subscriptions-section="content"]');
+  for (let elem of subscr_section)
+    elem.removeAttribute('subscriptions-section');
+  let amp_ads = document.querySelectorAll(amp_ads_sel);
+  removeDOMElement(...amp_ads);
+  if (replace_iframes)
+    amp_iframes_replace(amp_iframe_link, source);
+}
+
 if (matchDomain('wsj.com')) {
   let url = window.location.href;
   if (location.href.includes('/articles/')) {
