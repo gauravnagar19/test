@@ -28,7 +28,7 @@
 // @match           *://*.stcatharinesstandard.ca/*
 // @match           *://*.wellandtribune.ca/*
 // ==/UserScript==
-/// ExampleScript.js
+/// ExampleScript1.js
 console.log("Hello I'm running via scriptlet injection: ExampleScript.js");
 (function() {
   'use strict';
