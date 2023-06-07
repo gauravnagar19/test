@@ -1,2 +1,2 @@
 /// test.js
-console.log("Hello I'm running via scriptlet injection.");
+console.log("Hello I'm running via scriptlet injection: test.js");
