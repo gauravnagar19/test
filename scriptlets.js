@@ -63,11 +63,6 @@
       }
     }
   }
- else if (window.location.href.indexOf("nytimes.com") > -1) {
-        var banners = document.querySelectorAll('div[data-testid="inline-message"], div[id^="ad-"], div.expanded-dock, div.pz-ad-box');
-        //removeDOMElement(...banners);
-        console.log("Latest version");
-    }
 
   function amp_unhide_subscr_section(amp_ads_sel, replace_iframes, amp_iframe_link, source) {
     amp_ads_sel = amp_ads_sel || 'amp-ad, .ad';
