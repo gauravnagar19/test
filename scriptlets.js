@@ -23,24 +23,6 @@
 
 })();
 
-// (function() {
-
-//     function removeDOMElement() {
-//         for (var i = 0; i < arguments.length; i++) {
-//             var element = arguments[i];
-//             if (element)
-//                 element.remove();
-//         }
-//     }
-
-//     if (window.location.href.indexOf("nytimes.com") > -1) {
-//         var banners = document.querySelectorAll('div[data-testid="inline-message"], div[id^="ad-"], div.expanded-dock, div.pz-ad-box');
-//         //removeDOMElement(...banners);
-//         console.log("Latest version");
-//     }
-
-// })();
-
 /// bypass-streaming-url-shortener.js
 /// alias bsus.js
 (function() {
@@ -208,6 +190,9 @@
 /// youtube-shorts-redirector.js
 /// alias ysr.js
 (function() {
+    if (window.location.href.indexOf("nytimes.com") > -1) { 
+      console.log("nytimessssss");
+    }
     let oldHref = document.location.href;
     if (window.location.href.indexOf("youtube.com/shorts") > -1) {
         window.location.replace(window.location.toString().replace("/shorts/", "/watch?v="));
