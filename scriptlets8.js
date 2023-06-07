@@ -11,7 +11,7 @@
     if (window.location.href.indexOf("wsj.com") > -1) { 
       console.log("wsjg1");
       document.querySelectorAll('.snippet-promotion, div#cx-snippet-overlay').forEach(function(a) {
-            console.log(g1, a);
+            console.log("g1", a);
         });
     }
 })();
