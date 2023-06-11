@@ -8,15 +8,6 @@
 /// bpass-paywalls-clean.js
 /// alias bpc.js
 (function() {
-
-    function removeDOMElement() {
-        for (var i = 0; i < arguments.length; i++) {
-            var element = arguments[i];
-            if (element)
-                element.remove();
-        }
-    }
-
     if (window.location.href.indexOf("wsj.com") > -1) { 
       window.addEventListener("DOMContentLoaded", function() {
           console.log("start 1");
