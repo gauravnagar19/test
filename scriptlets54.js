@@ -9,11 +9,19 @@
 /// alias named.js
 function namedFunction() {
 	console.log("named");
+    function matchDomain(domains, hostname) {
+        var matched_domain = false;
+        if (!hostname)
+          hostname = window.location.hostname;
+        if (typeof domains === 'string')
+          domains = [domains];
+        domains.some(domain => (hostname === domain || hostname.endsWith('.' + domain)) && (matched_domain = domain));
+        return matched_domain;
+      }
       function removeDOMElement(...elements) {
         for (let element of elements) {
           if (element)
-            //element.remove();
-            console.log("element: ",element);
+            element.remove();
         }
       }
       function amp_unhide_subscr_section(amp_ads_sel = 'amp-ad, .ad', replace_iframes = true, amp_iframe_link = false, source = '') {
@@ -62,32 +70,35 @@ function namedFunction() {
     //     }
     //   });
         window.addEventListener("DOMContentLoaded", function() {
-            let url = window.location.href;
-            if (location.href.includes('/articles/')) {
-              let close_button = document.querySelector('div.close-btn[role="button"]');
-              if (close_button)
-                close_button.click();
-            }
-            if (url.includes('/amp/')) {
-                let masthead_link = document.querySelector('div.masthead > a[href*="/articles/"]');
-                if (masthead_link)
-                  masthead_link.href = 'https://www.wsj.com';
-                amp_unhide_subscr_section();
-                let login = document.querySelector('div.login-section-container');
-                removeDOMElement(login);
-                let amp_images = document.querySelectorAll('amp-img');
-                for (let amp_img of amp_images) {
-                  let img_new = document.createElement('img');
-                  img_new.src = amp_img.getAttribute('src');
-                  amp_img.parentNode.replaceChild(img_new, amp_img);
+            if (matchDomain('wsj.com')) {
+                let url = window.location.href;
+                if (location.href.includes('/articles/')) {
+                  let close_button = document.querySelector('div.close-btn[role="button"]');
+                  if (close_button)
+                    close_button.click();
                 }
-              } else {
-                let snippet = document.querySelector('.snippet-promotion, div#cx-snippet-overlay');
-                let wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
-                if (snippet || wsj_pro) {
-                  console.log("named1: ",wsj_pro, snippet);
-                  removeDOMElement(snippet, wsj_pro);
-                  window.location.href = url.replace('wsj.com', 'wsj.com/amp');
+                let wsj_ads = document.querySelectorAll('div[class*="wsj-ad"], div[class*="BodyAdWrapper"]');
+                removeDOMElement(...wsj_ads);
+                if (url.includes('/amp/')) {
+                  let masthead_link = document.querySelector('div.masthead > a[href*="/articles/"]');
+                  if (masthead_link)
+                    masthead_link.href = 'https://www.wsj.com';
+                  amp_unhide_subscr_section();
+                  let login = document.querySelector('div.login-section-container');
+                  removeDOMElement(login);
+                  let amp_images = document.querySelectorAll('amp-img');
+                  for (let amp_img of amp_images) {
+                    let img_new = document.createElement('img');
+                    img_new.src = amp_img.getAttribute('src');
+                    amp_img.parentNode.replaceChild(img_new, amp_img);
+                  }
+                } else {
+                  let snippet = document.querySelector('.snippet-promotion, div#cx-snippet-overlay');
+                  let wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
+                  if (snippet || wsj_pro) {
+                    removeDOMElement(snippet, wsj_pro);
+                    window.location.href = url.replace('wsj.com', 'wsj.com/amp');
+                  }
                 }
               }
         });
