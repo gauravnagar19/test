@@ -5,10 +5,9 @@
 /**********************/
 /* Generic Scriptlets */
 /**********************/
-/// namedFunction.js
-/// alias named.js
-function namedFunction() {
-	console.log("named");
+/// Bypass-Paywall.js
+/// alias bpc.js
+function bpc() {
         // General Functions
         function matchDomain(domains, hostname) {
           var matched_domain = false;
@@ -2619,38 +2618,7 @@ function namedFunction() {
         }, 1000);
     });
 }
-namedFunction();
-/// bpass-paywalls-clean.js
-/// alias bpc.js
-(function() {
-    if (window.location.href.indexOf("wsj.com") > -1) { 
-      window.addEventListener("DOMContentLoaded", function() {
-          console.log("start 1");
-          document.querySelectorAll('.snippet-promotion, div#cx-snippet-overlay').forEach(e => console.log("e1: ",e));
-          let myDiv = document.getElementById("cx-snippet-overlay");
-          console.log("myDiv1: ",myDiv);
-          console.log("end 1");
-      });
-      window.addEventListener("load", function() { 
-          console.log("start 2");
-          document.querySelectorAll('.snippet-promotion, div#cx-snippet-overlay').forEach(e => console.log("e2: ",e));
-          let myDiv = document.getElementById("cx-snippet-overlay");
-          console.log("myDiv2: ",myDiv);
-          console.log("end 2");
-      });
-      window.addEventListener("load", function() { 
-          var snippet = document.querySelector('.snippet-promotion, div#cx-snippet-overlay');
-          var wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
-          console.log("myDiv31: ",snippet, wsj_pro);
-          if (snippet || wsj_pro) {
-            //removeDOMElement(snippet, wsj_pro);
-            console.log("myDiv32: ",snippet, wsj_pro);
-            window.location.href = url.replace('wsj.com', 'wsj.com/amp');
-          }
-      });
-    }
-})();
-
+bpc();
 /// bypass-streaming-url-shortener.js
 /// alias bsus.js
 (function() {
