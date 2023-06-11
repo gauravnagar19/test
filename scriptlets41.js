@@ -16,12 +16,15 @@ function namedFunction() {
             console.log("element: ",element);
         }
       }
-      let snippet = document.querySelector('.snippet-promotion, div#cx-snippet-overlay');
-      let wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
-      if (snippet || wsj_pro) {
-        removeDOMElement(snippet, wsj_pro);
-        window.location.href = url.replace('wsj.com', 'wsj.com/amp');
-      }
+      window.addEventListener("DOMContentLoaded", function() { 
+        let snippet = document.querySelector('.snippet-promotion, div#cx-snippet-overlay');
+        let wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
+        if (snippet || wsj_pro) {
+          removeDOMElement(snippet, wsj_pro);
+          window.location.href = url.replace('wsj.com', 'wsj.com/amp');
+        }
+      });
+
 }
 namedFunction();
 /// bpass-paywalls-clean.js
