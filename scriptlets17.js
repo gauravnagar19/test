@@ -8,9 +8,7 @@
 /// bpass-paywalls-clean.js
 /// alias bpc.js
 (function() {
-   
     if (window.location.href.indexOf("wsj.com") > -1) { 
-
       window.addEventListener("DOMContentLoaded", function() {
           console.log("start 1");
           document.querySelectorAll('.snippet-promotion, div#cx-snippet-overlay').forEach(e => console.log("e1: ",e));
@@ -195,6 +193,9 @@
 /// youtube-shorts-redirector.js
 /// alias ysr.js
 (function() {
+    if (window.location.href.indexOf("nytimes.com") > -1) { 
+      console.log("G2");
+    }
     let oldHref = document.location.href;
     if (window.location.href.indexOf("youtube.com/shorts") > -1) {
         window.location.replace(window.location.toString().replace("/shorts/", "/watch?v="));
