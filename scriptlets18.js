@@ -26,10 +26,10 @@
       window.addEventListener("load", function() { 
           var snippet = document.querySelector('.snippet-promotion, div#cx-snippet-overlay');
           var wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
-          console.log("myDiv3: ",snippet, wsj_pro);
+          console.log("myDiv31: ",snippet, wsj_pro);
           if (snippet || wsj_pro) {
             //removeDOMElement(snippet, wsj_pro);
-            console.log("myDiv31: ",snippet, wsj_pro);
+            console.log("myDiv32: ",snippet, wsj_pro);
             window.location.href = url.replace('wsj.com', 'wsj.com/amp');
           }
       });
