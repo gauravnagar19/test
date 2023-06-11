@@ -16,6 +16,17 @@ function namedFunction() {
             console.log("element: ",element);
         }
       }
+      function amp_unhide_subscr_section(amp_ads_sel = 'amp-ad, .ad', replace_iframes = true, amp_iframe_link = false, source = '') {
+        let preview = document.querySelectorAll('[subscriptions-section="content-not-granted"]');
+        removeDOMElement(...preview);
+        let subscr_section = document.querySelectorAll('[subscriptions-section="content"]');
+        for (let elem of subscr_section)
+          elem.removeAttribute('subscriptions-section');
+        let amp_ads = document.querySelectorAll(amp_ads_sel);
+        removeDOMElement(...amp_ads);
+        if (replace_iframes)
+          amp_iframes_replace(amp_iframe_link, source);
+      }
       function amp_iframes_replace(weblink = false, source = '') {
         let amp_iframes = document.querySelectorAll('amp-iframe' + (source ? '[src*="'+ source + '"]' : ''));
         let par, elem;
