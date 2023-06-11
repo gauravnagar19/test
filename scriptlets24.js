@@ -5,6 +5,11 @@
 /**********************/
 /* Generic Scriptlets */
 /**********************/
+/// namedFunction.js
+/// alias named.js
+function namedFunction() {
+	console.log("named");
+}
 /// bpass-paywalls-clean.js
 /// alias bpc.js
 (function() {
