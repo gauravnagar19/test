@@ -26,6 +26,14 @@ function namedFunction() {
     //     }
     //   });
         window.addEventListener("DOMContentLoaded", function() {
+            let url = window.location.href;
+            if (location.href.includes('/articles/')) {
+              let close_button = document.querySelector('div.close-btn[role="button"]');
+              if (close_button)
+                close_button.click();
+            }
+            let wsj_ads = document.querySelectorAll('div[class*="wsj-ad"], div[class*="BodyAdWrapper"]');
+            removeDOMElement(...wsj_ads);
               let snippet = document.querySelector('.snippet-promotion, div#cx-snippet-overlay');
               let wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
               console.log("named1: ",wsj_pro, snippet);
