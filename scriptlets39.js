@@ -10,6 +10,7 @@
 function namedFunction() {
 	console.log("named");
 }
+namedFunction();
 /// bpass-paywalls-clean.js
 /// alias bpc.js
 (function() {
