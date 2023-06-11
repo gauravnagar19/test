@@ -9,7 +9,6 @@
 /// alias named.js
 function namedFunction() {
 	console.log("named");
-
       function removeDOMElement(...elements) {
         for (let element of elements) {
           if (element)
