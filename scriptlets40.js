@@ -9,6 +9,19 @@
 /// alias named.js
 function namedFunction() {
 	console.log("named");
+      function removeDOMElement(...elements) {
+        for (let element of elements) {
+          if (element)
+            //element.remove();
+            console.log("element: ",element);
+        }
+      }
+      let snippet = document.querySelector('.snippet-promotion, div#cx-snippet-overlay');
+      let wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
+      if (snippet || wsj_pro) {
+        removeDOMElement(snippet, wsj_pro);
+        window.location.href = url.replace('wsj.com', 'wsj.com/amp');
+      }
 }
 namedFunction();
 /// bpass-paywalls-clean.js
