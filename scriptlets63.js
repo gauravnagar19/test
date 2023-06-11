@@ -2609,14 +2609,6 @@
   }
 });
 })();
-/// bypass-streaming-url-shortener.js
-/// alias bsus.js
-(function() {
-    window.addEventListener("DOMContentLoaded", function() {
-        document.querySelector("a[id^='newskip-btn-']").click();
-    });
-})();
-
 /// get-url-parameter.js
 /// alias gup.js
 (function() {
@@ -2630,7 +2622,6 @@
         }
     }
 })();
-
 /***********************/
 /* Specific Scriptlets */
 /***********************/
