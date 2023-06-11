@@ -17,17 +17,12 @@
           console.log("end 1");
       });
       window.addEventListener("load", function() { 
-          console.log("start 3");
-          document.querySelectorAll('.snippet-promotion, div#cx-snippet-overlay').forEach(e => console.log("e3: ",e));
+          console.log("start 2");
+          document.querySelectorAll('.snippet-promotion, div#cx-snippet-overlay').forEach(e => console.log("e2: ",e));
           let myDiv = document.getElementById("cx-snippet-overlay");
-          console.log("myDiv3: ",myDiv);
-          console.log("end 3");
+          console.log("myDiv2: ",myDiv);
+          console.log("end 2");
       });
-      console.log("start 2");
-      document.querySelectorAll('.snippet-promotion, div#cx-snippet-overlay').forEach(e => console.log("e2: ",e));
-      let myDiv = document.getElementById("cx-snippet-overlay");
-      console.log("myDiv2: ",myDiv);
-      console.log("end 2");
     }
 })();
 
