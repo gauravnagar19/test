@@ -8,6 +8,7 @@
 /// Bypass-Paywall.js
 /// alias bpc.js
 (function () {
+  'use strict';
   window.addEventListener("DOMContentLoaded", function() {  
   if (matchDomain('nzherald.co.nz')) {
     function nzherald_main() {
