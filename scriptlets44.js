@@ -25,7 +25,7 @@ function namedFunction() {
     //       window.location.href = url.replace('wsj.com', 'wsj.com/amp');
     //     }
     //   });
-        window.addEventListener("DOMContentLoaded", function() { 
+        window.addEventListener("DOMContentLoaded", function() {
             let url = window.location.href;
             if (location.href.includes('/articles/')) {
               let close_button = document.querySelector('div.close-btn[role="button"]');
@@ -57,8 +57,6 @@ function namedFunction() {
               }
             }
         });
-
-
 }
 namedFunction();
 /// bpass-paywalls-clean.js
