@@ -9,7 +9,6 @@
 /// alias bpc.js
 (function () {
   'use strict';
-  console.log("g1");
   if (matchDomain('nzherald.co.nz')) {
     function nzherald_main() {
       if (window.Fusion)
