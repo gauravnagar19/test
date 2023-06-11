@@ -9,14 +9,14 @@
 /// alias bpc.js
 (function() {
 
-      function removeDOMElement() {
-        for (var i = 0; i < arguments.length; i++) {
-          var element = arguments[i];
-          if (element)
-            //element.remove();
-              console.log("removing: ", element);
-        }
-      }
+//       function removeDOMElement() {
+//         for (var i = 0; i < arguments.length; i++) {
+//           var element = arguments[i];
+//           if (element)
+//             //element.remove();
+//               console.log("removing: ", element);
+//         }
+//       }
 
     
     if (window.location.href.indexOf("wsj.com") > -1) { 
@@ -25,7 +25,7 @@
           var snippet = document.querySelector('.snippet-promotion, div#cx-snippet-overlay');
           var wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
           if (snippet || wsj_pro) {
-            removeDOMElement(snippet, wsj_pro);
+            //removeDOMElement(snippet, wsj_pro);
             window.location.href = url.replace('wsj.com', 'wsj.com/amp');
           }
       });
