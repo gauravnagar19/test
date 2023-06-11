@@ -9,11 +9,25 @@
 /// alias bpc.js
 (function() {
     if (window.location.href.indexOf("wsj.com") > -1) { 
-      console.log("wsjg1");
-      document.querySelectorAll('.snippet-promotion, div#cx-snippet-overlay').forEach(e => console.log("e: ",e));
+      window.addEventListener("DOMContentLoaded", function() {
+          console.log("start 1");
+          document.querySelectorAll('.snippet-promotion, div#cx-snippet-overlay').forEach(e => console.log("e1: ",e));
+          let myDiv = document.getElementById("cx-snippet-overlay");
+          console.log("myDiv1: ",myDiv);
+          console.log("end 1");
+      });
+      window.addEventListener("load", function() { 
+          console.log("start 3");
+          document.querySelectorAll('.snippet-promotion, div#cx-snippet-overlay').forEach(e => console.log("e3: ",e));
+          let myDiv = document.getElementById("cx-snippet-overlay");
+          console.log("myDiv3: ",myDiv);
+          console.log("end 3");
+      });
+      console.log("start 2");
+      document.querySelectorAll('.snippet-promotion, div#cx-snippet-overlay').forEach(e => console.log("e2: ",e));
       let myDiv = document.getElementById("cx-snippet-overlay");
-      console.log("myDiv: ",myDiv);
-      console.log("g1");
+      console.log("myDiv2: ",myDiv);
+      console.log("end 2");
     }
 })();
 
