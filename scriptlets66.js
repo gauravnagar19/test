@@ -9,7 +9,7 @@
 /// alias bpc.js
 (function () {
   'use strict';
-  window.addEventListener("DOMContentLoaded", function() {  
+  console.log("g1");
   if (matchDomain('nzherald.co.nz')) {
     function nzherald_main() {
       if (window.Fusion)
@@ -2608,7 +2608,6 @@
       return RegExp(text).test(element.textContent);
     });
   }
-});
 })();
 /// get-url-parameter.js
 /// alias gup.js
