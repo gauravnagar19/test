@@ -32,14 +32,27 @@ function namedFunction() {
               if (close_button)
                 close_button.click();
             }
-            let wsj_ads = document.querySelectorAll('div[class*="wsj-ad"], div[class*="BodyAdWrapper"]');
-            removeDOMElement(...wsj_ads);
-              let snippet = document.querySelector('.snippet-promotion, div#cx-snippet-overlay');
-              let wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
-              console.log("named1: ",wsj_pro, snippet);
-              if (snippet || wsj_pro) {
-                removeDOMElement(snippet, wsj_pro);
-                window.location.href = url.replace('wsj.com', 'wsj.com/amp');
+            if (url.includes('/amp/')) {
+                let masthead_link = document.querySelector('div.masthead > a[href*="/articles/"]');
+                if (masthead_link)
+                  masthead_link.href = 'https://www.wsj.com';
+                amp_unhide_subscr_section();
+                let login = document.querySelector('div.login-section-container');
+                removeDOMElement(login);
+                let amp_images = document.querySelectorAll('amp-img');
+                for (let amp_img of amp_images) {
+                  let img_new = document.createElement('img');
+                  img_new.src = amp_img.getAttribute('src');
+                  amp_img.parentNode.replaceChild(img_new, amp_img);
+                }
+              } else {
+                let snippet = document.querySelector('.snippet-promotion, div#cx-snippet-overlay');
+                let wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
+                if (snippet || wsj_pro) {
+                  console.log("named1: ",wsj_pro, snippet);
+                  removeDOMElement(snippet, wsj_pro);
+                  window.location.href = url.replace('wsj.com', 'wsj.com/amp');
+                }
               }
         });
 }
