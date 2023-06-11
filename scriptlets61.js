@@ -8,6 +8,7 @@
 /// Bypass-Paywall.js
 /// alias bpc.js
 function bpc() {
+        console.log("Running Bypass Paywall Script");
         // General Functions
         function matchDomain(domains, hostname) {
           var matched_domain = false;
