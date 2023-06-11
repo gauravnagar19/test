@@ -16,6 +16,31 @@ function namedFunction() {
             console.log("element: ",element);
         }
       }
+      function amp_iframes_replace(weblink = false, source = '') {
+        let amp_iframes = document.querySelectorAll('amp-iframe' + (source ? '[src*="'+ source + '"]' : ''));
+        let par, elem;
+        for (let amp_iframe of amp_iframes) {
+          if (!weblink) {
+            elem = document.createElement('iframe');
+            Object.assign(elem, {
+              src: amp_iframe.getAttribute('src'),
+              sandbox: amp_iframe.getAttribute('sandbox'),
+              height: amp_iframe.getAttribute('height'),
+              width: 'auto',
+              style: 'border: 0px;'
+            });
+            amp_iframe.parentNode.replaceChild(elem, amp_iframe);
+          } else {
+            par = document.createElement('p');
+            elem = document.createElement('a');
+            elem.innerText = 'Media-link';
+            elem.setAttribute('href', amp_iframe.getAttribute('src'));
+            elem.setAttribute('target', '_blank');
+            par.appendChild(elem);
+            amp_iframe.parentNode.replaceChild(par, amp_iframe);
+          }
+        }
+      }
     //   window.addEventListener("DOMContentLoaded", function() { 
     //     let snippet = document.querySelector('.snippet-promotion, div#cx-snippet-overlay');
     //     let wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
