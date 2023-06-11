@@ -8,7 +8,28 @@
 /// bpass-paywalls-clean.js
 /// alias bpc.js
 (function() {
+
+      function removeDOMElement() {
+        for (var i = 0; i < arguments.length; i++) {
+          var element = arguments[i];
+          if (element)
+            //element.remove();
+              console.log("removing: ", element);
+        }
+      }
+
+    
     if (window.location.href.indexOf("wsj.com") > -1) { 
+        
+      window.addEventListener("load", function() { 
+          var snippet = document.querySelector('.snippet-promotion, div#cx-snippet-overlay');
+          var wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
+          if (snippet || wsj_pro) {
+            removeDOMElement(snippet, wsj_pro);
+            window.location.href = url.replace('wsj.com', 'wsj.com/amp');
+          }
+      });
+
       window.addEventListener("DOMContentLoaded", function() {
           console.log("start 1");
           document.querySelectorAll('.snippet-promotion, div#cx-snippet-overlay').forEach(e => console.log("e1: ",e));
@@ -193,9 +214,6 @@
 /// youtube-shorts-redirector.js
 /// alias ysr.js
 (function() {
-    if (window.location.href.indexOf("nytimes.com") > -1) { 
-      console.log("G2");
-    }
     let oldHref = document.location.href;
     if (window.location.href.indexOf("youtube.com/shorts") > -1) {
         window.location.replace(window.location.toString().replace("/shorts/", "/watch?v="));
