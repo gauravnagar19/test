@@ -9,6 +9,7 @@
 /// alias named.js
 function namedFunction() {
 	console.log("named");
+    
     function matchDomain(domains, hostname) {
         var matched_domain = false;
         if (!hostname)
