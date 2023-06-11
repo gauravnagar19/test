@@ -10,32 +10,6 @@
 function namedFunction() {
 	console.log("named");
 
-    function amp_iframes_replace(weblink = false, source = '') {
-        let amp_iframes = document.querySelectorAll('amp-iframe' + (source ? '[src*="'+ source + '"]' : ''));
-        let par, elem;
-        for (let amp_iframe of amp_iframes) {
-          if (!weblink) {
-            elem = document.createElement('iframe');
-            Object.assign(elem, {
-              src: amp_iframe.getAttribute('src'),
-              sandbox: amp_iframe.getAttribute('sandbox'),
-              height: amp_iframe.getAttribute('height'),
-              width: 'auto',
-              style: 'border: 0px;'
-            });
-            amp_iframe.parentNode.replaceChild(elem, amp_iframe);
-          } else {
-            par = document.createElement('p');
-            elem = document.createElement('a');
-            elem.innerText = 'Media-link';
-            elem.setAttribute('href', amp_iframe.getAttribute('src'));
-            elem.setAttribute('target', '_blank');
-            par.appendChild(elem);
-            amp_iframe.parentNode.replaceChild(par, amp_iframe);
-          }
-        }
-      }
-
     function amp_unhide_subscr_section(amp_ads_sel = 'amp-ad, .ad', replace_iframes = true, amp_iframe_link = false, source = '') {
         let preview = document.querySelectorAll('[subscriptions-section="content-not-granted"]');
         removeDOMElement(...preview);
