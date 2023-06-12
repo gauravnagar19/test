@@ -2341,6 +2341,19 @@ else if (document.querySelector('img[srcset^="https://www.gannett-cdn.com/"], li
     }
   }
 }
+else if (matchDomain('medium.com') || document.querySelector('script[src^="https://cdn-client.medium.com/"]')) {
+  const paywall = document.querySelector('div#paywall-background-color');
+  removeDOMElement(paywall);
+  if (paywall) {
+    extensionApi.runtime.sendMessage({ request: 'refreshCurrentTab' });
+  }
+  window.setTimeout(function () {
+    const meter = document.querySelector('[id*="highlight-meter-"]');
+    if (meter) {
+      meter.hidden = true;
+    }
+  }, 500);
+}
 }
 }, 1000);
 // General Functions
