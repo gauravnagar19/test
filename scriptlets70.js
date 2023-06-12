@@ -2342,6 +2342,7 @@ else if (document.querySelector('img[srcset^="https://www.gannett-cdn.com/"], li
   }
 }
 else if (matchDomain('medium.com') || document.querySelector('script[src^="https://cdn-client.medium.com/"]')) {
+  //
   const paywall = document.querySelector('div#paywall-background-color');
   removeDOMElement(paywall);
   if (paywall) {
@@ -2353,6 +2354,11 @@ else if (matchDomain('medium.com') || document.querySelector('script[src^="https
       meter.hidden = true;
     }
   }, 500);
+  //
+  const bottomMessageText = 'Get one more story in your member preview when you sign up. It’s free.';
+  const DOMElementsToTextDiv = pageContains('div', bottomMessageText);
+  if (DOMElementsToTextDiv[2]) removeDOMElement(DOMElementsToTextDiv[2]);
+  //
 }
 }
 }, 1000);
